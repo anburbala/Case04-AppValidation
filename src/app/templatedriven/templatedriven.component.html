@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+  </head>
+  <body>
+    <form (ngSubmit)="form.form.valid && onSubmit()" #form="ngForm" [mustMatch]="['password', 'cpassword']" novalidate>
+     <div class="container">
+      <div class="form-group">
+       <label>Title</label>
+       <select name="title" class="browser-default custom-select" [(ngModel)]="model.title" #title="ngModel" [ngClass]="{'is-invalid' : form.submitted && title.invalid}" required>
+          <option value="1">Mr</option>
+          <option value="2">Mrs</option>
+          <option value="3">Miss</option>
+       </select>
+          <div *ngIf="form.submitted && firstName.invalid" class="invalid-feedback">
+            <div *ngIf="firstName.errors.required">Title is required</div>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" name="firstName" class="form-control" placeholder="Enter First Name" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': form.submitted && firstName.invalid }" required>
+        <div *ngIf="form.submitted && firstName.invalid" class="invalid-feedback">
+              <div *ngIf="firstName.errors.required">First Name is required</div>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName" >Last Name</label>
+        <input type="text" name="lastName" class="form-control" placeholder="Enter Last Name"  [(ngModel)]="model.lastName" #lastName="ngModel" [ngClass]="{'is-invalid': form.submitted && lastName.invalid}" required>
+        <div *ngIf="form.submitted && lastName.invalid" class="invalid-feedback">
+          <div *ngIf="lastName.errors.required">Last Name is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="Email" name="email" class="form-control" placeholder="Enter Email Address" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{'is-invalid' : form.submitted && email.invalid}" required >
+          <div *ngIf="form.submitted && email.invalid" class="invalid-feedback">
+            <div *ngIf="email.errors.required">Email is required</div>
+            <div *ngIf="email.errors.email">Email must be a valid Email</div>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Enter Password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{'is-invalid' : form.submitted && password.invalid}" required>
+        <div *ngIf="form.submitted && password.invalid" class="invalid-feedback">
+        <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+     </div>
+     <div class="form-group">
+       <label for="cpassword">Confirm Password</label>
+       <input class="form-control" type="password" name="cpassword" placeholder="Confirm Password" [(ngModel)]="model.cpassword" #cpassword="ngModel" [ngClass]="{'is-invalid' : form.submitted && cpassword.invalid}" required >
+       <div *ngIf="form.submitted && cpassword.invalid" class="invalid-feedback">
+          <div *ngIf="cpassword.errors.required">Confirm Password is required</div>
+          <div *ngIf="cpassword.errors.mustMatch">Passwords must match</div>
+      </div>
+     </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+  </form>
+</body>
+</html>
