@@ -14,51 +14,51 @@
      <div class="container">
       <div class="form-group">
        <label>Title</label>
-       <select name="title" class="browser-default custom-select" [ngClass]="{'is-invalid' : submitted && f.title.invalid}">
+       <select name="title" class="browser-default custom-select"  required>
           <option value="1">Mr</option>
           <option value="2">Mrs</option>
           <option value="3">Miss</option>
        </select>
-          <div *ngIf="submitted && f.firstName.invalid" class="invalid-feedback">
-            <div *ngIf="firstName.errors.required">Title is required</div>
-          </div>
+          <!-- [ngClass]="{'is-invalid' : submitted && f.title.invalid}" <div *ngIf="submitted && f.firstName.invalid" class="invalid-feedback">
+            <div *ngIf="f.title.errors.required">Title is required</div>
+          </div> -->
       </div>
       <div class="form-group">
         <label for="firstname">First Name</label>
         <input type="text" name="firstName" class="form-control" placeholder="Enter First Name"  [ngClass]="{ 'is-invalid': submitted && f.firstName.invalid }" >
         <div *ngIf="submitted && f.firstName.invalid" class="invalid-feedback">
-              <div *ngIf="firstName.errors.required">First Name is required</div>
+              <div *ngIf="f.firstName.errors.required">First Name is required</div>
           </div>
       </div>
       <div class="form-group">
         <label for="lastName" >Last Name</label>
         <input type="text" name="lastName" class="form-control" placeholder="Enter Last Name"  [ngClass]="{'is-invalid': submitted && f.lastName.invalid}" required>
         <div *ngIf="submitted && f.lastName.invalid" class="invalid-feedback">
-          <div *ngIf="lastName.errors.required">Last Name is required</div>
+          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
         </div>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
         <input type="Email" name="email" class="form-control" placeholder="Enter Email Address" [ngClass]="{'is-invalid' : submitted && f.email.invalid}">
           <div *ngIf="submitted && f.email.invalid" class="invalid-feedback">
-            <div *ngIf="email.errors.required">Email is required</div>
-            <div *ngIf="email.errors.email">Email must be a valid Email</div>
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid Email</div>
           </div>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
         <input type="password" name="password" class="form-control" placeholder="Enter Password" [ngClass]="{'is-invalid' : submitted && f.password.invalid}">
         <div *ngIf="submitted && f.password.invalid" class="invalid-feedback">
-        <div *ngIf="password.errors.required">Password is required</div>
-          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+        <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
         </div>
      </div>
      <div class="form-group">
        <label for="cpassword">Confirm Password</label>
        <input class="form-control" type="password" name="cpassword" placeholder="Confirm Password"  [ngClass]="{'is-invalid' : submitted && f.cpassword.invalid}" >
        <div *ngIf="submitted && f.cpassword.invalid" class="invalid-feedback">
-          <div *ngIf="cpassword.errors.required">Confirm Password is required</div>
-          <div *ngIf="cpassword.errors.mustMatch">Passwords must match</div>
+          <div *ngIf="f.cpassword.errors.required">Confirm Password is required</div>
+          <div *ngIf="f.cpassword.errors.mustMatch">Passwords must match</div>
       </div>
      </div>
      <div class="form-group form-check">
@@ -66,7 +66,10 @@
       <label for="acceptTerms" class="form-check-label" style="padding-left: 15px;">Terms & Conditions</label>
       <div *ngIf="submitted && f.acceptTerms.invalid" class="invalid-feedback">Accept Ts & Cs is required</div>
      </div>
-      <button class="btn btn-primary" type="submit">Submit</button>
+     <div class="text-center">
+      <button class="btn btn-primary mr-1" type="submit">Submit</button>
+      <button class="btn btn-secondary" type="reset" (click) = "onReset()">Reset</button>
+     </div>
     </div>
   </form>
 </body>
