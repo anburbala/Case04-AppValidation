@@ -1,10 +1,23 @@
-<h1>Angular Router App</h1>
+
+
 <!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
-<nav>
-  <ul>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+     <a href="#" class="navbar-brand"><b>Angular Router App</b></a></div>
+     <div class="collapse navbar-collapse">
+       
+
+       
+  <ul class="nav navbar-nav">
     <li><a routerLink="/templatedriven-component" routerLinkActive="active">Template Driven</a></li>
     <li><a routerLink="/reactiveform-component" routerLinkActive="active">Reactive Form</a></li>
+    <li><a routerLink="/product-component" routerLinkActive="active">Product</a></li>
   </ul>
+
+</div>
+
+</div>
 </nav>
 <!-- The routed views render in the <router-outlet>-->
 <router-outlet></router-outlet>

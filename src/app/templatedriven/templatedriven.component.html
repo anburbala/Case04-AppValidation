@@ -1,19 +1,17 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-  </head>
   <body>
-    <header style="text-align: center;"><h1>Template Driven Form</h1></header>
+    <header style="text-align: center;"><h3><b>Template Driven Form</b></h3></header>
+    <!-- <div class="container">
+      <a href="../login/login.component.html">Login Form</a> 
+      <a href="../forgetpassword/forgetpassword.component.html">Forget Password</a>
+  </div> -->
+<hr>
     <form (ngSubmit)="form.form.valid && onSubmit()" #form="ngForm" [mustMatch]="['password', 'cpassword']">
      <div class="container">
       <div class="form-group">
        <label>Title</label>
-       <select name="title" class="browser-default custom-select" [(ngModel)]="model.title" #title="ngModel" [ngClass]="{'is-invalid' : form.submitted && title.invalid}" required>
+       <select name="title" class="browser-default custom-select form-control" [(ngModel)]="model.title" #title="ngModel" [ngClass]="{'is-invalid' : form.submitted && title.invalid}" required>
           <option value="1">Mr</option>
           <option value="2">Mrs</option>
           <option value="3">Miss</option>
