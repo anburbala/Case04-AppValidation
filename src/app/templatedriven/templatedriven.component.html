@@ -2,10 +2,6 @@
 <html lang="en">
   <body>
     <header style="text-align: center;"><h3><b>Template Driven Form</b></h3></header>
-    <!-- <div class="container">
-      <a href="../login/login.component.html">Login Form</a> 
-      <a href="../forgetpassword/forgetpassword.component.html">Forget Password</a>
-  </div> -->
 <hr>
     <form (ngSubmit)="form.form.valid && onSubmit()" #form="ngForm" [mustMatch]="['password', 'cpassword']">
      <div class="container">

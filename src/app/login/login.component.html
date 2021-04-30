@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="container">
+<div class="login-form">
+<form #loginForm="ngForm" (ngSubmit)="onFormSubmit(loginForm)" class="form-signin">
+  <h2 class="form-signin-heading" style="text-align: center;">Please sign in</h2>
+  
+    <label for="inputusername" class="sr-only">User Name:</label>
+    <input  type="text"  name="username" class="form-control" 
+    formControlName="userName" placeholder="Username"  ngModel required autofocus>
+  <br>
+  
+    <label for="inputpassword" class="sr-only">Password</label>
+    <input type="password"  name="password" class="form-control" 
+    formControlName="password" placeholder="Password" ngModel required>
+  <br>
+   <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+   
+ </form>
+</div>
+</div>

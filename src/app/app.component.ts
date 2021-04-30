@@ -9,10 +9,25 @@ import { AuthService } from './auth/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  isUserLoggedIn = false;
   constructor (private authService:AuthService, 
     private router:Router) {
 }
 
+ngOnInit() {
+  if(!this.authService.isUserLoggedIn())
+  {
+   
+    this.isUserLoggedIn = false;
+    this.router.navigate(['login-component']);
+  }
+  else
+{
+
+     this.isUserLoggedIn = true;
+     this.router.navigate(['logout-component']);
+}
+}
   title = 'Case04-AppValidation';
   
 }

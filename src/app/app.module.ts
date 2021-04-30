@@ -8,10 +8,12 @@ import {MustMatchDirective} from './must-match.directive';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { CustomerrorComponent } from './customerror/customerror.component';
 import { LoginComponent } from './login/login.component';
-import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { ProductComponent } from './product/product.component';
 import { AuthService } from './auth/auth.service';
-import { AuthGuard } from './auth/auth.guard';
+import { AuthGuardService } from './auth/auth-guard.service';
+import { ProductService } from './services/product.service';
+import { LogoutComponent } from './logout/logout.component';
+
 
 
 @NgModule({
@@ -22,17 +24,18 @@ import { AuthGuard } from './auth/auth.guard';
     ReactiveformComponent,
     CustomerrorComponent,
     LoginComponent,
-    ForgetpasswordComponent,
     ProductComponent,
+    LogoutComponent,
   
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
-  providers: [AuthGuard,AuthService],
+  providers: [AuthGuardService,AuthService,ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
