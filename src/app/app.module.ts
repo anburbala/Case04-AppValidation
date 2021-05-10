@@ -13,8 +13,10 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { ProductService } from './services/product.service';
 import { LogoutComponent } from './logout/logout.component';
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpErrorInterceptor } from './interceptors/HttpErrorInterceptors';
+import { ProductCreateComponent } from './product-create/product-create.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     ProductComponent,
     LogoutComponent,
+    ProductCreateComponent,
   
   ],
   imports: [
@@ -33,9 +36,15 @@ import { LogoutComponent } from './logout/logout.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    HttpClientModule,
 
   ],
-  providers: [AuthGuardService,AuthService,ProductService],
+  providers: [AuthGuardService,AuthService,ProductService,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpErrorInterceptor,
+    multi : true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

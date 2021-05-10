@@ -1,0 +1,40 @@
+[
+    {
+      
+      "name": "Memory Card",
+      "desc": "description for memory card",
+      "price": "499"
+    },
+    {
+      
+      "name": "Pen Drive",
+      "desc": "description for pen drive",
+      "price": "699"
+    },
+    {
+     
+      "name": "Power Bank",
+      "desc": "description for power bank",
+      "price": "599"
+    },
+    {
+      
+      "name": "Computer",
+      "desc": "description for computer",
+      "price": "599"
+    },
+    {
+      
+      "name": "Laptop",
+      "desc": "description for laptop",
+      "price": "599"
+    },
+    {
+      
+      "name": "Printer",
+      "desc": "description for printer",
+      "price": "599"
+    }
+]
+    
+  

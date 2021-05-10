@@ -2,25 +2,32 @@
 <html lang="en">
   <body>
     <header style="text-align: center;"><h3><b>Product List</b></h3></header>
-    <p> This is a protected component </p>
-  
+    <div>
+        <a routerLink="product-create-component" class="nav-link"><b>Add Product</b></a>
+        <div style="float: right;">
+            <button class="btn btn-primary" type="button" (click)="deleteAllProducts()">DeleteAllProducts</button>
+        </div>
+    </div>
+   
    <div class='table-responsive'>
    <table class='table'>
        <thead>
            <tr>
-               <th>ID</th>
                <th>Name</th>
                <th>Price</th>
+               <th>Details</th>
            </tr>
        </thead>
        <tbody>
            <tr *ngFor="let product of products;">
-               <td>{{product.productID}}</td>
                <td><a>{{product.name}} </a> </td>
                <td>{{product.price}}</td>
+               <td>{{product.desc}}</td>
            </tr>
        </tbody>
      </table>
   </div>
+  
   </body>
 </html>
+<router-outlet></router-outlet>
