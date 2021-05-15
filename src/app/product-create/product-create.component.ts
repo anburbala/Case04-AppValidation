@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/Product';
 import { ProductService } from '../services/product.service';
 import { Subject } from 'rxjs';
-import { map} from 'rxjs/operators';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-create',
@@ -18,10 +16,11 @@ export class ProductCreateComponent implements OnInit {
   error = new Subject<string>();
 
   product = {
-    productId: '',
+    // productId: '',
     name: '',
     price: '',
     desc: '',
+    productAvailable: '',
     available:false,
   };
   submitted = false;
@@ -35,10 +34,11 @@ export class ProductCreateComponent implements OnInit {
   createProduct() {
 
    let product : Product= {
-    productId : this.product.productId,
+    // productId : this.product.productId,
     name: this.product.name,
     price : this.product.price,
-    desc: this.product.desc
+    desc: this.product.desc,
+    productAvailable: this.product.productAvailable
    };
 
     this.productService.create(product)
