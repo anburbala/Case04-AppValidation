@@ -11,7 +11,8 @@ import { map} from 'rxjs/operators';
 export class ProductComponent
 {
   products : Product[] = [];
-
+  filteredProduct = '';
+  filteredStatus = '';
    constructor(private productService: ProductService){
    }
 

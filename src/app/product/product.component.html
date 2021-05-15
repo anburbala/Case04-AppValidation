@@ -1,15 +1,42 @@
-<!doctype html>
-<html lang="en">
-  <body>
+<!-- <!doctype html>
+<html lang="en"> -->
+  <!-- <body> -->
+      <div class="container">
     <header style="text-align: center;"><h3><b>Product List</b></h3></header>
+    <hr>
     <div>
         <a routerLink="product-create-component" class="nav-link"><b>Add Product</b></a>
         <div style="float: right;">
             <button class="btn btn-primary" type="button" (click)="deleteAllProducts()">DeleteAllProducts</button>
         </div>
     </div>
-   
-   <div class='table-responsive'>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            Product Filter <input type="text" [(ngModel)]="filteredProduct">
+            Available Products <input type="text" [(ngModel)]="filteredStatus">
+            <br>
+            <hr>
+            <ul class="list-group">
+                <li class="list-group-item"
+                *ngFor="let product of products | filter: filteredProduct: 'name' | filterProduct : filteredStatus: 'productAvailable'"
+                > 
+                <span class="badge" style="float:right" > 
+                    {{ product.productAvailable }}
+                   </span>
+               <span><strong>Name : {{product.name}}</strong></span> | <br>
+                    <span><strong>Price : {{product.price}}</strong></span> | <br>
+                    <span><strong>Details : {{product.desc}}</strong></span> | <br>
+               
+               
+                <br>
+                </li>
+            </ul>
+        </div> 
+
+    </div>
+</div>
+   <!-- <div class='table-responsive'>
    <table class='table'>
        <thead>
            <tr>
@@ -26,8 +53,8 @@
            </tr>
        </tbody>
      </table>
-  </div>
+  </div> -->
   
-  </body>
-</html>
+  <!-- </body>
+</html> -->
 <router-outlet></router-outlet>

@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './interceptors/HttpErrorInterceptors';
 import { ProductCreateComponent } from './product-create/product-create.component';
+import { FilterPipe } from './filter.pipe';
+import { FilterProductPipe } from './filter-product.pipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { ProductCreateComponent } from './product-create/product-create.componen
     ProductComponent,
     LogoutComponent,
     ProductCreateComponent,
+    FilterPipe,
+    FilterProductPipe,
   
   ],
   imports: [

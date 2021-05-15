@@ -10,6 +10,7 @@ import { AuthService } from './auth/auth.service';
 })
 export class AppComponent {
   isUserLoggedIn = false;
+  isLogOut = false;
   constructor (private authService:AuthService, 
     private router:Router) {
 }
@@ -17,7 +18,6 @@ export class AppComponent {
 ngOnInit() {
   if(!this.authService.isUserLoggedIn())
   {
-   
     this.isUserLoggedIn = false;
     this.router.navigate(['login-component']);
   }
@@ -25,6 +25,7 @@ ngOnInit() {
 {
 
      this.isUserLoggedIn = true;
+     this.isLogOut=true;
      this.router.navigate(['logout-component']);
 }
 }

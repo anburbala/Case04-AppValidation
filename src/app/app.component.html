@@ -15,11 +15,12 @@
             <li class="nav-item">
               <div *ngIf="isUserLoggedIn; else isLogOut">
               <a class="nav-link" routerLink="/login-component" routerLinkActive="active">Login</a>
-            </div>
+          
           
           <ng-template #isLogOut>
             <a class="nav-link" routerLink="/logout-component" routerLinkActive="active">Logout</a>
           </ng-template>
+        </div>
         </li>
         </ul>
     </div>

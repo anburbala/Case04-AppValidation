@@ -1,8 +1,9 @@
 export interface Product { 
-  productId: string  
+  // productId: string  
   name: string;
   desc: string;
   price: string;
+  productAvailable : string;
 }
 
 export interface Products{
